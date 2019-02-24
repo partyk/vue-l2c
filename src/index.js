@@ -1,3 +1,4 @@
 import '@babel/polyfill';
+import Vue from 'vue';
 
-console.error('error1');
+global.Vue = Vue;
