@@ -10,7 +10,7 @@ global.app = new Vue({
     },
     methods: {
         submitForm() {
-            if (this.inputText.length === 0) {
+            if (!this.inputText || this.inputText.length === 0) {
                 return;
             }
             this.submittedText = this.inputText;
