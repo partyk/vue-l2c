@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@partyk/eslint-config-standard"
+  ]
+}
