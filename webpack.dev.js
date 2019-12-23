@@ -1,8 +1,15 @@
 /* config for develop mode */
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-// plugins
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
+/* globals */
+// global.isProduction = true;
+
+/* loaders */
+// const loaders = require('./webpack/webpack.loaders');
+
+/* plugins */
+const plugins = require('./webpack/plugins/index');
 
 module.exports = merge(common, {
     mode: 'development',
@@ -12,25 +19,11 @@ module.exports = merge(common, {
     },
     watch: true,
     watchOptions: {
-        ignored: /node_modules/,
+        ignored: /node_modules/
     },
     plugins: [
-        new BrowserSyncPlugin(
-            // BrowserSync options
-            {
-                // browse to http://localhost:3000/ during development
-                host: 'localhost',
-                port: 3000,
-                server: {
-                    baseDir: ['dist']
-                }
-            },
-            // plugin options
-            {
-                // prevent BrowserSync from reloading the page
-                // and let Webpack Dev Server take care of this
-                reload: true
-            }
-        )
+        plugins.bundleAnalyzer() //,
+        // plugins.dashboard()
+        // plugins.browserSync()
     ]
 });

@@ -1,57 +1,66 @@
 /* config for all */
+const config = require('./webpack.config');
 const path = require('path');
-/* plugins */
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const {VueLoaderPlugin} = require('vue-loader');
+const merge = require('webpack-merge');
 
-module.exports = {
-    mode: 'development',
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm' // alias for vuejs
+/* loaders */
+const loaders = require('./webpack/loaders/index');
+
+/* plugins */
+const plugins = require('./webpack/plugins/index');
+
+module.exports = merge(
+    {
+        mode: 'development',
+        // a complete list of "stats" setting is on https://webpack.js.org/configuration/stats/
+        stats: {
+            // copied from `'minimal'`
+            all: false,
+            assets: false,
+            modules: true,
+            maxModules: 0,
+            errors: false, // disabled errors
+            warnings: false, // disabled warnings
+            // our additional options
+            moduleTrace: true,
+            errorDetails: true
         },
-        extensions: ['.vue', '.tsx', '.ts', '.js', '.json'],
-        modules: [
+        resolve: {
+            extensions: ['.vue', '.css', '.tsx', '.ts', '.js', '.json'],
+            modules: [
+                path.resolve(__dirname, 'node_modules')
+            ]
+        },
+        output: {
+            path: path.resolve(config.path.assets)
+        },
+        plugins: [
+            plugins.clean(),
+            plugins.friendlyErrors(),
+            plugins.copy(),
+            plugins.imageMin(),
+            plugins.iconFont(),
+            plugins.webpackBar(),
+            plugins.duplicatePackageChecker(),
+            plugins.vueLoader()
+        ]
+    },
+    loaders.loadESLint({
+        exclude: [
             path.resolve(__dirname, 'node_modules')
         ]
-    },
-    entry: {
-        main: path.resolve(__dirname, 'src/index.js')
-    },
-    output: {
-        path: path.resolve(__dirname, 'dist/assets'),
-        filename: '[name].js',
-        publicPath: '/assets/js/', // nastaveni cesty k chunkum
-        chunkFilename: 'chunks/[name].[contenthash].chunk.js'
-    },
-    module: {
-        rules: [
-            {
-                enforce: 'pre',
-                test: /\.(js(x)?|ts|tsx|vue)$/,
-                loader: 'eslint-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                options: {
-                    loaders: {
-                        'js': 'babel-loader' /*,
-                            'scss': 'vue-style-loader!css-loader!sass-loader',
-                            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax' */
-                    }
-                }
-            },
-            {
-                test: /\.js(x)?$/,
-                // exclude: /node_modules|bower_components/,
-                use: ['babel-loader']
-            }
+    }),
+    loaders.loadTypeScript(),
+    loaders.loadVueJs(),
+    loaders.loadJS(),
+    loaders.loadCss(),
+    loaders.loadScss(),
+    // loaders.loadLess(),
+    loaders.loadImage(),
+    loaders.loadFonts({
+        include: [
+            path.resolve(__dirname, 'src/icons'),
+            path.resolve(__dirname, 'src/fonts')
         ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(['dist/assets/*']),
-        new VueLoaderPlugin()
-    ]
-};
+    })
+);
