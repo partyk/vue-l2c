@@ -1,5 +1,5 @@
 <template>
-    <li v-bind:title="title" class="list-group-item">
+    <li v-bind:title="title" class="list-group-item aaa">
         <slot></slot>
         {{ name }}
     </li>
@@ -17,3 +17,10 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+    li {
+        font-size: 2em;
+        color: #F00;
+    }
+</style>
