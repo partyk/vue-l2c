@@ -1,23 +1,10 @@
 {
   "extends": [
-    "eslint-config-standart-partyk",
-    "plugin:vue/strongly-recommended"
-  ],
-  "plugins": [
-    "vue"
+    "eslint-config-standart-partyk"
   ],
   "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "babel-eslint",
     "sourceType": "module"
-  },
-  "rules": {
-    "indent": ["warn", 4],
-    "vue/script-indent": ["warn", 4, {
-      "baseIndent": 0
-    }],
-    "vue/html-indent": ["warn", 4, {
-      "attribute": 2
-    }]
   }
 }

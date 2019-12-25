@@ -1,21 +1,22 @@
 <template>
-    <li
-            :title="title"
-            class="list-group-item"
-    >
+    <li v-bind:title="title" class="list-group-item">
         {{ name }}
     </li>
 </template>
 
 <script>
 export default {
-    data: function () {
-        return {
-            title: ''
-        };
-    },
+    name: 'Dude',
     props: {
-        name
+        name: {
+            type: String,
+            required: true
+        }
+    },
+    data() {
+        return {
+            title: 'aaa'
+        };
     }
 };
 </script>

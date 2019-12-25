@@ -2,29 +2,44 @@
 <html>
 <head>
     <title>VeuJS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/assets/css/style-scss.css">
 </head>
 <body>
-    <div id="app">
-        <ul class="list-group">
-            <dude
-                v-for="(item, index) in characters"
-                title="Hello"
-                v-bind:name="item"
-                v-bind:key="index"
-            ></dude>
-        </ul>
-        <form class="add-new" @submit.prevent="characters.push(newDude)">
-            <div class="form-group">
-                <input type="text" class="form-control" v-model="newDude">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div id="app">
+                <ul class="list-group">
+                    <dude
+                            v-for="(item, index) in characters"
+                            title="Hello"
+                            v-bind:name="item"
+                            v-bind:key="index"
+                    ></dude>
+                    <listgroupitem
+                            v-for="(item, index) in characters"
+                            v-bind:title="`Index ` + index"
+                            v-bind:name="item"
+                            v-bind:key="`list` + index">
+                            {{ index }}
+                    </listgroupitem>
+                </ul>
+                <form class="add-new" @submit.prevent="characters.push(newDude)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" v-model="newDude">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Odeslat</button>
+                </form>
+                <p class="text-center">
+                    {{ newDude }}
+                </p>
             </div>
-            <button type="submit" class="btn btn-primary">Odeslat</button>
-        </form>
-        <p class="text-center">
-            {{ newDude }}
-        </p>
+        </div>
     </div>
-    <script src="/assets/js/main.js"></script>
+</div>
+
+<script src="/assets/js/main.js"></script>
 </body>
 </html>
