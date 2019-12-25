@@ -1,4 +1,4 @@
-import Test from '../test/Test';
+import Test from '../components/test/Test';
 
 export default {
     components: {
