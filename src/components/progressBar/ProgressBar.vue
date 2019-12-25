@@ -7,7 +7,7 @@
                  :aria-valuenow="value"
                  aria-valuemin="0"
                  aria-valuemax="100"
-                >
+            >
                 {{ value }}%
             </div>
         </div>
@@ -20,30 +20,4 @@
         </button>
     </div>
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            value: 20
-        };
-    },
-    methods: {
-        raiseBar() {
-            if (this.value < 100) {
-                this.value += 1;
-            } else {
-                this.value = 20;
-            }
-        }
-    }
-};
-</script>
-
-<style lang="scss" scoped>
-.progress {
-    .progress-bar {
-        font-weight: bold;
-    }
-}
-</style>
+<script src="./progressBar.js"></script>

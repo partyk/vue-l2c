@@ -7,34 +7,29 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style-scss.css">
 </head>
 <body>
+<div id="app"></div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <div id="app">
-                <ul class="list-group">
+            <div id="app1">
+                <ul class="list-group mb-3">
                     <dude
                             v-for="(item, index) in characters"
                             title="Hello"
                             v-bind:name="item"
                             v-bind:key="index"
                     ></dude>
-                    <listgroupitem
-                            v-for="(item, index) in characters"
-                            v-bind:title="`Index ` + index"
-                            v-bind:name="item"
-                            v-bind:key="`list` + index">
-                            {{ index }}
-                    </listgroupitem>
+<!--                    <listgroupitem-->
+<!--                            v-for="(item, index) in characters"-->
+<!--                            v-bind:title="`Index ` + index"-->
+<!--                            v-bind:name="item"-->
+<!--                            v-bind:key="`list` + index">-->
+<!--                            {{ index }}-->
+<!--                    </listgroupitem>-->
                 </ul>
-                <form class="add-new" @submit.prevent="characters.push(newDude)">
-                    <div class="form-group">
-                        <input type="text" class="form-control" v-model="newDude">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Odeslat</button>
-                </form>
-                <p class="text-center">
-                    {{ newDude }}
-                </p>
+                <create-dude-form
+                        v-on:add-dude="characters.push($event)"
+                    ></create-dude-form>
                 <progress-bar></progress-bar>
             </div>
         </div>

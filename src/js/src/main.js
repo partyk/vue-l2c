@@ -1,23 +1,26 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
-import Vue from 'vue/dist/vue.esm';
-import Dude from '../../components/Dude';
-import Listgroupitem from '../../components/Listgroupitem';
+// import AppVue
+import './appVue';
+
+/* import Dude from '../../components/Dude';
+import CreateDudeForm from '../../components/CreateDudeForm';
+// import Listgroupitem from '../../components/Listgroupitem';
 import ProgressBar from '../../components/ProgressBar';
 
 new Vue({
     el: '#app',
     components: {
         Dude,
-        Listgroupitem,
+        CreateDudeForm,
+        // Listgroupitem,
         ProgressBar
     },
     data: {
-        newDude: '',
         characters: [
             'loreipsum 1',
             'loreipsum 2',
             'loreipsum 3'
         ]
     }
-});
+}); */
