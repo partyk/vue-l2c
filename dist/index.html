@@ -8,10 +8,7 @@
 </head>
 <body class="has-background-primary">
 <div id="app">
-    <card></card>
-    <card></card>
-    <card></card>
-    <card></card>
+    <product v-for="item in products" v-bind:key="item.id" v-bind:item="item"></product>
 </div>
 <script src="/assets/js/main.js" async defer></script>
 <!--    <script src="/assets/js/style.js" async defer></script>-->

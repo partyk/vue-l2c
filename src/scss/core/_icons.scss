@@ -1,0 +1,5 @@
+@each $icon in $font-icons {
+    .icon-#{$icon}::before {
+        icon-font: url('../../icons/#{$icon}.svg');
+    }
+}
