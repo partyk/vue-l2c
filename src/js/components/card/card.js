@@ -6,11 +6,10 @@ export default {
             lastName: 'Partyk',
             imageSelected: 0,
             images: [
-                'https://jooinn.com/images/1-2-3-1.jpg',
-                'https://thumbs.dreamstime.com/z/icons-numbers-one-two-three-isolated-white-background-three-dimensional-rendering-88504243.jpg',
-                'http://www.masinlab.it/wp-content/uploads/2017/10/123.png'
-            ],
-            showPoo: false
+                '/assets/images/one.png',
+                '/assets/images/two.jpg',
+                '/assets/images/three.jpg'
+            ]
         };
     },
     methods: {
@@ -22,6 +21,9 @@ export default {
         },
         debug(message) {
             console.log(message);
+        },
+        clickPoo() {
+            this.$emit('click-poo');
         }
     },
     computed: {

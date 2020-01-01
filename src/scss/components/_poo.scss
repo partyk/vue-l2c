@@ -1,16 +1,16 @@
-.poo-animate {
-    width: 150px;
-    text-align: center;
-    // animation
-    &-enter-active {
-        transition: width 3s;
-    }
+.poo {
+    position: absolute;
+    top: 0;
+}
 
-    &-enter {
-        width: 0;
-    }
+.drop-enter-active {
+    transition: all 1s ease-in;
+}
 
-    &-enter-to {
-        width: 100%;
-    }
+.drop-enter {
+    transform: translateX(-50%) translateY(calc(0vh - 600px));
+}
+
+.drop-enter-to {
+    transform: translateX(-50%) translateY(calc(100vh + 600px));
 }

@@ -8,8 +8,14 @@
 </head>
 <body class="has-background-primary">
 <div id="app">
-    <card></card>
-    <product v-for="item in products" v-bind:key="item.id" v-bind:item="item"></product>
+    <card v-on:click-poo="createPoop"></card>
+    <transition-group
+            name="drop"
+            v-on:before-enter="animateStart"
+            v-on:after-enter="animateStop"
+    >
+        <poop v-for="poo in poops" :key="poo"></poop>
+    </transition-group>
 </div>
 <script src="/assets/js/main.js" async defer></script>
 <!--    <script src="/assets/js/style.js" async defer></script>-->
