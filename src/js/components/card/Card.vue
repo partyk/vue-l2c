@@ -1,6 +1,17 @@
 <template>
-    <div class="card" :class="classObject">
+    <div class="card product" :class="classObject">
         <div class="card-image">
+            <transition
+                    name="poo-animate"
+                    v-on:after-enter="showPoo = false"
+            >
+                <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/095-pile-of-poo.svg/1024px-095-pile-of-poo.svg.png"
+                        v-show="showPoo"
+                        v-on:click="debug('Poo')"
+                        alt="Poo"
+                >
+            </transition>
             <figure class="image">
                 <img v-bind:src="image" alt="Placeholder image" v-on:click="randomImage">
             </figure>
@@ -29,7 +40,7 @@
         <footer class="card-footer">
             <a class="card-footer-item" v-on:click="score++">more</a>
             <a class="card-footer-item" v-on:click="--score">less</a>
-            <a class="card-footer-item" v-bind:disabled="score < 1">butt</a>
+            <a class="card-footer-item" v-bind:disabled="score < 1" v-on:click="showPoo = true">Show POO</a>
         </footer>
     </div>
 </template>

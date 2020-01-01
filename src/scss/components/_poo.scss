@@ -1,0 +1,16 @@
+.poo-animate {
+    width: 150px;
+    text-align: center;
+    // animation
+    &-enter-active {
+        transition: width 3s;
+    }
+
+    &-enter {
+        width: 0;
+    }
+
+    &-enter-to {
+        width: 100%;
+    }
+}

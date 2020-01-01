@@ -11,6 +11,7 @@ new Vue({
         Product
     },
     data: {
+        showPoo: false,
         products: [
             {
                 id: 1,

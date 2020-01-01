@@ -9,7 +9,8 @@ export default {
                 'https://jooinn.com/images/1-2-3-1.jpg',
                 'https://thumbs.dreamstime.com/z/icons-numbers-one-two-three-isolated-white-background-three-dimensional-rendering-88504243.jpg',
                 'http://www.masinlab.it/wp-content/uploads/2017/10/123.png'
-            ]
+            ],
+            showPoo: false
         };
     },
     methods: {
@@ -18,6 +19,9 @@ export default {
         },
         getRandomInt(max) {
             return Math.floor(Math.random() * Math.floor(max));
+        },
+        debug(message) {
+            console.log(message);
         }
     },
     computed: {
