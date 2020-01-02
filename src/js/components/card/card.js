@@ -1,10 +1,14 @@
-import MainImage from '../image/Image.vue';
+import MainImage from '../image/Image';
 import Score from '../score/Score';
+import AsciiDudes from '../AsciiDudes/AsciiDudes';
+import Buttons from '../Buttons/buttons';
 
 export default {
     components: {
         MainImage,
-        Score
+        Score,
+        AsciiDudes,
+        Buttons
     },
     data() {
         return {
