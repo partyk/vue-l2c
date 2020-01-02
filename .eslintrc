@@ -1,7 +1,7 @@
 {
   "extends": [
     "eslint-config-standart-partyk",
-    "plugin:vue/strongly-recommended"
+    "plugin:vue/essential"
   ],
   "plugins": [
     "vue"
@@ -12,7 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "indent": ["warn", 4],
+    "no-unneeded-ternary": 2,
     "vue/script-indent": ["warn", 4, {
       "baseIndent": 0
     }],
