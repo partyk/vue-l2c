@@ -1,17 +1,9 @@
 <template>
     <div class="card product" :class="classObject">
-        <div class="card-image">
-            <figure class="image">
-                <img v-bind:src="image" alt="Placeholder image" v-on:click="randomImage">
-            </figure>
-        </div>
+        <main-image v-bind:image="image" v-on:randomimage="randomImage"></main-image>
         <div class="card-content has-text-centered">
             <div class="content">
-                <div class="title is-size-1 has-text-weight-bold">
-                    <span v-show="score >= 10">🎉</span>
-                    {{ score }}
-                    <span v-show="score >= 10">🎉</span>
-                </div>
+                <score v-bind:score="score"></score>
                 <p>
                     {{ fullName }}
                 </p>

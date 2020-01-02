@@ -1,4 +1,11 @@
+import MainImage from '../image/Image.vue';
+import Score from '../score/Score';
+
 export default {
+    components: {
+        MainImage,
+        Score
+    },
     data() {
         return {
             score: 5,
