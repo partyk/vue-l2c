@@ -13,7 +13,10 @@
                 <create-dude-form
                         v-on:add-dude="characters.push($event)"
                 />
-                <progress-bar></progress-bar>
+                <Checkbox v-model="lovingVue" />
+                {{lovingVue}}
+                <progress-bar v-bind:num="num" />
+                <input v-model="num">
             </div>
         </div>
     </div>

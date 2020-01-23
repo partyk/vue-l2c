@@ -1,8 +1,16 @@
 export default {
+    props: [
+        'num'
+    ],
     data() {
         return {
-            value: 20
+            value: this.num
         };
+    },
+    watch: {
+        num: function () {
+            this.value = this.num;
+        }
     },
     methods: {
         raiseBar() {

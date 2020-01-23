@@ -15,6 +15,8 @@
             <label for="formControlRange">Example Range input</label>
             <input type="range" class="form-control-range" id="formControlRange" min="0" max="100" v-model.number="value">
         </div>
+        {{num}}
+        {{value}}
         <button v-on:click="raiseBar" class="btn btn-secondary mb-10">
             Progress bar up
         </button>
